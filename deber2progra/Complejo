@@ -1,0 +1,71 @@
+package Deber1Sem2.deber2progra;
+
+/**
+ * Ejercicio 3 Cree una clase llamada Complejo para realizar operaciones
+ * aritméticas con números complejos. Estos números tienen la forma: parteReal +
+ * parteImaginaria * i donde i representa la raiz de -1. Cap 8 (8.11)
+ *
+ * @author Jhon
+ */
+public class Complejo {
+
+    //Atributos de clase
+    private double parteReal;
+    private double parteImaginaria;
+    //Constructores
+
+    public Complejo() {
+        this.parteReal = 0;
+        this.parteImaginaria = 0;
+    }
+
+    public Complejo(double real, double imaginaria) {
+        this.parteReal = real;
+        this.parteImaginaria = imaginaria;
+    }
+    //Accesadores
+
+    public double getParteReal() {
+        return parteReal;
+    }
+
+    public double getParteImaginaria() {
+        return parteImaginaria;
+    }
+    //MÃ©todos
+    //Suma: (a,b)+(c,d)=(a+c,b+d)
+
+    public void suma(Complejo otro) {
+        this.parteReal = this.getParteReal() + otro.getParteReal();
+        this.parteImaginaria += otro.getParteImaginaria();
+    }
+    //Resta: (a,b)-(c,d)=(a-c,b-d)
+
+    public void resta(Complejo otro) {
+        this.parteReal -= otro.getParteReal();
+        this.parteImaginaria -= otro.getParteImaginaria();
+    }
+
+    @Override
+    public String toString() {
+        return "(" + parteReal + ","
+                + parteImaginaria + ")";
+    }
+
+    public static void main(String[] args) {
+
+        Complejo n1 = new Complejo(9, 5);
+        Complejo n2 = new Complejo(7, 8);
+
+        System.out.print("Operación de SUMA de los números complejos: " + n1
+                + " + " + n2 + " = ");
+        n1.suma(n2);
+        System.out.println(n1 + "\n");
+
+        System.out.print("Operación de RESTA de los números complejos: " + n1 + " - " + n2 + " = ");
+        n1.resta(n2);
+        System.out.println(n1 + "\n");
+
+    }
+
+}
